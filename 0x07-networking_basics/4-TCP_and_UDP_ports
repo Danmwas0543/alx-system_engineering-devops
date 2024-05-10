@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Check whether user is running as root
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root or with sudo."
+    exit 1
+find
+
+# Use netstat to acquire listening ports together with processes
+netstat -tuln | awk 'NR > 2 {
+    printf "Proto: %-7s %-20s %-10s %-20s\n", $1, $4, $NF, $6
+    cmd = "lsof -i :" substr($4, index($4, ":") + 1) " -P -n | grep LISTEN | awk '"'"'{print \$2, \$1}'"'\""
+    cmd | getline pid_prog
+    close(cmd)
+    split(pid_prog, arr, " ")
+    printf "  PID: %-7s Program: %s\n", arr[1], arr[2]
+}'
