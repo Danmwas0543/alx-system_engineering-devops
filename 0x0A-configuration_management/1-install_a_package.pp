@@ -11,10 +11,6 @@ package { 'Flask':
 }
 
 package { 'werkzeug':
-  ensure   => '
-}
-
-package { 'werkzeug':
   ensure   => '2.1.1',
   provider => 'pip3',
   require  => package['Flask'],
