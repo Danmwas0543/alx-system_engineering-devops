@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script prints numbers from 1 to 100.
+# Specifications:
+# Prints "FizzBuzz" for numbers that are multiples of both 3 and 5
+# Prints "Fizz" for numbers that are multiples of 3
+# Prints "Buzz" for numbers that are multiples of 5
+# Otherwise, prints the number itself
+# Output is in list format
+
+for num in {1..100}; do
+	if ! ((num % 15)); then
+		echo "FizzBuzz"
+	elif ! ((num % 3)); then
+		echo "Fizz"
+	elif ! ((num % 5)); then
+		echo "Buzz"
+	else
+		echo "$num"
+	fi
+done
