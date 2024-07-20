@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# 102-lets_parse_apache_logs
+# Display IP addresses and status codes from a log file, sorted by frequency in descending order
+
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
