@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Print numbers from 1 to 20
+# Print "4" and "Misfortune from China" at the 4th iteration
+# Print "9" and "Misfortune from Japan" at the 9th iteration
+# Print "17" and "Misfortune from Italy" at the 17th iteration
+
+china_message="Misfortune from China"
+japan_message="Misfortune from Japan"
+italy_message="Misfortune from Italy"
+counter=1
+while [ $counter -lt 21 ]; do
+	case $counter in
+		4)
+			echo "$counter" && echo "$china_message"
+			;;
+		9)
+			echo "$counter" && echo "$japan_message"
+			;;
+		17)
+			echo "$counter" && echo "$italy_message"
+			;;
+		*)
+			echo "$counter"
+			;;
+	esac
+	((counter++))
+done
