@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Script to print "Best School" 10 times and "Hi" on the 9th time
+
+message="Best School"
+special_message="Hi"
+counter="0"
+while [ $counter -lt 10 ]; do
+	if [ $counter -eq 9 ]; then
+		echo "$special_message"
+	fi
+	echo "$message"
+	((counter++))
+done
